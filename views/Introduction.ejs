@@ -1,0 +1,183 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainPage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"><!-- 폰트 링크-->
+    <link rel="stylesheet" href="/introduction.css"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+</head>
+
+
+
+<body>
+    <!--전체를 감싸는 태그-->
+    <div  id="page-wrapper">
+
+        <!-- header -->
+        <header id="main-header">
+            <table  width="180px" height="0px" text-align="center" align="right"> <!--멤버로그인 박스 설정 align="right"로 오른쪽으로 배치 border속성 사용 x ->선안보임-->
+                <tr>
+                   <td height="150px" text-align="center">
+                    <b>안녕하세요! <%=user.nick %> 님 😊</b> <br>
+                    <a id="logout" href="/auth/logout">로그아웃</a>
+                   </td> 
+                  </tr>
+              </table>
+              <!--LOGO를 위한 div태그 가운데 위치조정 이미지 소스링크 네이버에서 받아옴-->
+            <div style="text-align: center;">
+                <a href="/main"> <!--추가-->
+                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150403_74%2Flsheng_1428069808248vgMYy_PNG%2F%25B7%25CE%25B0%25ED.png&type=sc960_832" alt="logo" width="150px">
+                
+            </div>
+            
+            
+            </header>
+
+        <!-- navigation  -->
+
+         <nav id="main-nav"> 
+            <div class="pull-left"> 
+                <ul class="outer-menu">
+                    <li class="outer-menu-item">
+                        <div class="menu-title" ><a href = "../main/Teammates" >조원소개</a></div>
+                    </li>
+                    <li class="outer-menu-item">
+                         <span class="menu-title"><a href="../main/introduction">전공소개</a></span>
+                    </li>
+                    <li class="outer-menu-item">
+                      <span class="menu-title"><a href = "../main/post">QnA</a></span>
+                    </li>
+                </ul>
+            </div>
+ 
+          </div>
+
+
+            
+         </nav>   
+         <!-- index -->
+         <section id="main-section">
+     
+            <li id = '1' onclick='wdb(this.id)'  > <i class="fas fa-database fa-2x">웹 데이터베이스 전공</i>
+            </li>
+            <br><br><br>     
+            <div class="write">  
+                <h1>인력양성</h1><p id='11'></p>
+                <h1>교육목표</h1><p id='12'></p>
+                <h1>주요취업처</h1><p id='13'></p>
+            </div> 
+
+            <li id = '1' onclick='gc(this.id)' >  <i class="fas fa-gamepad  fa-2x">컴퓨터 프로그래밍 전공</i>
+            </li>
+             <br><br><br>               
+            <li id = '1' onclick='cp(this.id)'  >  <i class="fas fa-network-wired fa-2x">스마트게임 컨텐츠 전공</i>                
+            </li>
+        <br><br><br>    
+        
+        </section>
+       
+         <hr>
+
+         
+        <!-- footer -->
+        <footer id="main-footer">
+            <div class="footimg" >
+                <a href="https://www.instagram.com/with_yju/ "  target="_blank">
+                    <i class="fab fa-instagram fa-5x "></i>
+                </a>
+                <a href="https://www.facebook.com/yjcomp"  target="_blank">
+                    <i class="fab fa-facebook-square fa-5x"></i>
+                </a>
+                <a href="https://www.yjp.ac.kr/portal/main/index_noie.jsp"  target="_blank">
+                    <i class="fas fa-graduation-cap fa-5x"></i>
+                </a>
+                <a href="https://github.com/nodepractice2 "  target="_blank">
+                    <i class="fab fa-github fa-5x"></i>
+                </a>
+            </div>
+
+            <div class="footdoc">
+                <p id="rights">개인정보처리방침</p><br>
+                <p>41527 대구광역시 북구 복현로 35 (복현2동 218) Tel : 053.940.5114</p><br>
+                <p>Copyright 2021 YEUNGJIN UNV.COM.2WDA</p><br>
+                <p>All rights reserved.All rights reserved For more information mail to Webmaster</p>
+            </div>
+         </footer>
+    </div>
+
+
+
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function wdb(id) {
+            axios({
+                method : 'post',
+                url : 'http://localhost:3001/main/introduction/wdb',
+                data : {
+                    "id" : id
+                }
+            }).then( (res) => {
+                var id2 =id +1;
+                var id3 =id +2;
+                var id4 =id +3;
+                console.log(document.getElementById(id2).value);
+                console.log(res.data[0]);
+                document.getElementById(id2).innerHTML =res.data[0];
+                document.getElementById(id3).innerHTML =res.data[1];
+                document.getElementById(id4).innerHTML = res.data[2];
+            })
+            .catch((err)=> {
+                console.error(err);
+            })
+        }
+        function gc(id) {
+            axios({
+                method : 'post',
+                url : 'http://localhost:3001/main/introduction/gc',
+                data : {
+                    "id" : id
+                }
+            }).then( (res) => {
+                var id2 =id +1;
+                var id3 =id +2;
+                var id4 =id +3;
+                console.log(document.getElementById(id2).value);
+                console.log(res.data[0]);
+                document.getElementById(id2).innerHTML =res.data[0];
+                document.getElementById(id3).innerHTML =res.data[1];
+                document.getElementById(id4).innerHTML =res.data[2];
+            })
+            .catch((err)=> {
+                console.error(err);
+            })
+        }
+        function cp(id) {
+            axios({
+                method : 'post',
+                url : 'http://localhost:3001/main/introduction/cp',
+                data : {
+                    "id" : id
+                }
+            }).then( (res) => {
+                var id2 =id +1;
+                var id3 =id +2;
+                var id4 =id +3;
+                console.log(document.getElementById(id2).value);
+                console.log(res.data[0]);
+                document.getElementById(id2).innerHTML =res.data[0];
+                document.getElementById(id3).innerHTML =res.data[1];
+                document.getElementById(id4).innerHTML =res.data[2];
+            })
+            .catch((err)=> {
+                console.error(err);
+            })
+        }
+     </script>
+</body>
+</html>

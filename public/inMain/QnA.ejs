@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teammates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"><!-- 폰트 링크-->
+    <link rel="stylesheet" href="./QnA.css"> 
+</head>
+
+
+
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+         <script src="./QnA.js"></script>
+         <!-- index -->
+         <section id="main-section">
+            <article>
+                
+               <div class="board_list_wrap">
+                  <div class="board_list">
+                    <div class="num">Q&A</div>
+                      <div class="board_list_head">
+                          <div class="num">번호</div>
+                          <div class="tit">제목</div>
+                          <div class="writer">글쓴이</div>
+                          <div class="date">작성일</div>
+                          <div class="view">조회</div>
+                      </div>
+                      <div class="board_list_body">
+                          <div class="item">
+                              <div class="num">5</div>
+                              <div class="tit"><a id ="5" onclick = "gopost(this.id)">실험용</a></div>
+                              <div class="writer">관리자</div>
+                              <div class="date">2020-05-20</div>
+                              <div class="view">111</div>
+
+                              <% for(i = 0; i < postdata.length; i++) { %>
+                                <div class="num"><%=postdata[i].id %></div>
+                                <div class="tit"><%=postdata[i].postTiltle %></div>
+                                <div class="writer"><%=postdata[i].writer %></div>
+                                <div class="date"><%=postdata[i].createdAt %></div>
+                            <% } %>
+                            
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+                  <button onclick="writing()" class="button">글쓰기</button>
+              </div>
+            </article>
+         </section>
+         <hr>
+         
+</body>
+</html>

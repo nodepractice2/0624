@@ -1,0 +1,215 @@
+
+*{
+    margin: 0; padding: 0;
+    font-family:  "Noto Sans KR";
+}
+a{
+    text-decoration: none;
+    
+}
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+li{
+    list-style : none;
+}
+body{
+    width: 100%; margin: 0 auto;
+    background: rgba(0, 0, 0, 0.1);
+}
+#page-wrapper{
+    background:white;
+    margin: 30px 0; padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(100,100,100,0.3);
+}
+#main-header{
+    padding: 40px 50px;
+}
+#main-nav{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    height: 40px;
+}
+.outer-menu-item{
+    float: left;
+    position: relative;
+}
+.outer-menu-item:hover{
+    background: #007c96;
+    color: white;
+}
+.menu-title{
+    display: block;
+    height: 30px; line-height: 30px;
+    text-align: center;
+    padding: 5px 20px;
+}
+
+.pull-left{
+    float: left;
+}
+.git{
+    background: rgba(100,100,100,0.1);
+}
+.yjp{
+    background: rgba(100,100,100,0.1);
+}
+.article-header {
+    width: 100%; height: 100%; overflow: hidden;
+    margin: 0px auto; position: relative;
+}
+
+button{
+    width:85px;
+
+    background-color: #D3D3D3;
+
+    border: none;
+
+    color:#fff;
+
+    padding: 15px 0;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 15px;
+
+    margin: 4px;
+
+    cursor: pointer;
+    border-radius:10px;
+}
+button:hover{
+    background-color: #708090;
+}
+i{
+    color: black;
+}
+i:hover{
+    
+    color: rgba(100,100,100,0.3);
+}
+.footdoc{
+    float: right;
+    font-size: 3px;
+    color: darkgray;
+}
+.footimg{
+    position: absolute;
+    float: left;
+}
+#rights{
+    color: blue;
+}
+.wrapper {
+    display: flex;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-item {
+    flex-basis: 180px;
+    flex-shrink: 0;
+    margin: 0 10px;
+    opacity: 0.4;
+    transition: all .4s;
+    
+}
+
+.team-item:hover {
+    opacity: 1;
+    flex-basis: 250px;
+    margin: 0 20px;
+}
+
+.team-item img {
+    width: 100%;
+}
+
+.profile {
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile:before {
+    content: ' ';
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.95+100 */
+background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#f2000000',GradientType=0 ); /* IE6-9 */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 200px;
+}
+
+.profile_red {
+    color: #ff4949;
+}
+
+.profile_beige {
+    color: beige;
+}
+
+.profile_green {
+    color: darkseagreen;
+}
+
+.profile_pink {
+    color: pink;
+}
+
+.profile_purple {
+    color: violet;
+}
+
+.profile-contents {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+.profile-contents h2 {
+    font-size: 30px;
+}
+
+.profile-contents h2 span {
+    display: block;
+    font-size: 20px;
+}
+
+.profile-contents p {
+    color: white;
+    font-size: 15px;
+    min-width: 140px;
+    max-height: 0;
+    overflow: hidden;
+    line-height: 1.2;
+    transition: all 1s;
+    opacity: 0;
+}
+
+.team-item:hover .profile-contents p {
+    opacity: 1;
+    transition-delay: .4s;
+    max-height: 6em;
+    margin-top: 0.4em;
+}

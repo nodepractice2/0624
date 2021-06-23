@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>글쓰기</title>
+    <link rel="stylesheet" href="/Article.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"><!-- 폰트 링크--> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body>
+    <div id="page-wrapper">
+        <header id="main-header">
+                <table  width="180px" height="0px" text-align="center" align="right"> <!--멤버로그인 박스 설정 align="right"로 오른쪽으로 배치 border속성 사용 x ->선안보임-->
+                    <tr>
+                       <td height="150px" text-align="center">
+                         <b>안녕하세요! <%=user.nick %> 님 😊</b> <br>
+                        <a id="logout" href="/auth/logout">로그아웃</a>
+                       </td> 
+                      </tr>
+                  </table>
+                  <!--LOGO를 위한 div태그 가운데 위치조정 이미지 소스링크 네이버에서 받아옴-->
+                <div style="text-align: center;">
+                    <a href="/main"> <!--추가-->
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150403_74%2Flsheng_1428069808248vgMYy_PNG%2F%25B7%25CE%25B0%25ED.png&type=sc960_832" alt="logo" width="150px">
+                </div>
+                </header>
+                <!-- navigation  -->
+
+         <nav id="main-nav"> 
+                <div class="pull-left"> 
+                    <ul class="outer-menu">
+                        <li class="outer-menu-item">
+                            <div class="menu-title" ><a href = "../Teammates" >조원소개</a></div>
+                        </li>
+                        <li class="outer-menu-item">
+                             <span class="menu-title"><a href = "../introduction">전공소개</a></span>
+                        </li>
+                        <li class="outer-menu-item">
+                          <span class="menu-title"><a href = "../post">QnA</a></span>
+                        </li>
+                    </ul>
+                </div>
+              </div>         
+             </nav>   
+    <section id="main-section">
+        <article>
+           <div class="board_list_wrap">
+              <div class="board_list">
+                <div class="num">Q&A</div>
+                  <div class="board_list_head">
+                      <div class="tit"><%=list[0].postTiltle%></div>
+                      <div class="writer"><%=list[0].writer %></div>
+                      <div class="date"><%=list[0].createdAt %></div>
+                      <button type="submit" onclick="del()" class="delete">삭제하기</button>
+                      <button class="button"onclick="up()">수정하기</button>
+                  </div>
+                  <div class="board_list_body">
+                      <div class="item">
+                        <div><br> <br> <br><p><%=list[0].content %></p> <br> <br> <br> </div>  
+                    </div>
+                    <br>
+                    <div class="com">
+                            <input id="new-comment" placeholder="댓글입력">
+                            <button type="submit" onclick="submitComment()" id="submit">댓글달기</button>
+                    </div>
+                    <div class="item_list">  
+                    <div class="item">
+                  </div>
+                 <div class="eotrmfckd">
+                    <% for(i = 1; i < list.length; i++) { %><br>  
+                        <div class="eotrmf"><%=list[i]['eotrmfs.writer'] %></div>
+                        <div class="eotrmf1"><%=list[i]['eotrmfs.content'] %><hr></div>
+                       <% } %>  
+                    <div id = 'new'></div>      
+                  </div>
+              </div>
+              <br>
+          </div>
+        </article>
+     </section>
+     <hr>
+     <!-- footer -->
+     <footer id="main-footer">
+            <div class="footimg">
+                <a href="https://www.instagram.com/with_yju/ "  target="_blank">
+                    <i class="fab fa-instagram fa-5x "></i>
+                </a>
+                <a href="https://www.facebook.com/yjcomp"  target="_blank">
+                    <i class="fab fa-facebook-square fa-5x"></i>
+                </a>
+                <a href="https://www.yjp.ac.kr/portal/main/index_noie.jsp"  target="_blank">
+                    <i class="fas fa-graduation-cap fa-5x"></i>
+                </a>
+                <a href="https://github.com/nodepractice2 "  target="_blank">
+                    <i class="fab fa-github fa-5x"></i>
+                </a>
+            </div>
+            <div class="footdoc">
+                <p id="rights">개인정보처리방침</p><br>
+                <p>41527 대구광역시 북구 복현로 35 (복현2동 218) Tel : 053.940.5114</p><br>
+                <p>Copyright 2021 YEUNGJIN UNV.COM.2WDA</p><br>
+                <p>All rights reserved.All rights reserved For more information mail to Webmaster</p>
+            </div>
+         </footer>
+        </div>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var users = [];
+        var i=0;   
+        function submitComment() {
+            var datgle = document.getElementById("new-comment").value;
+            axios({
+                method : 'post',
+                url : 'http://localhost:3001/main/QnA/Article/datgle',
+                data : {
+                    datgle  
+                }   
+            }).then( (res) => {
+                list = res.data;
+                users[i]=datgle;
+                i= i+1;
+                console.log(i);
+                console.log(users);
+                const newdata = document.getElementById('new');
+                newdata.innerHTML = '';
+                Object.keys(users).map(function (key){
+                    const userdiv = document.createElement('div');
+                    const span = document.createElement('span');
+                    span.innerHTML = "<%=user.nick %>" + "<br>" +users[key];
+                    //span.innerHTML = datgle;
+                    userdiv.appendChild(span);
+                    newdata.appendChild(userdiv);
+                })
+            }).catch((err)=> {
+                console.error(err);
+            })
+        }
+        function del(){ 
+            var input =prompt('삭제 을 입력' ,' ');
+            axios({
+                method : 'DELETE',
+                url:'http://localhost:3001/main/QnA/Article/delete',
+                data : {
+                    input
+                }
+            }).then((res)=>{
+                    if(res.data == '입력불일치') {
+                    alert('글 작성자가 아닙니다');
+                }else {
+                       return alert('잘못입력하셨습니다');
+                    }
+                    if(res.data == '유저불일치') {
+                        return alert('글 작성자가 아닙니다');
+                    };                  
+            })
+        }
+        function up(){
+            axios({
+                method : 'get',
+                url:'http://localhost:3001/main/QnA/update'
+            }).then((res) =>{
+                if(res.data =='fail'){
+                    alert('글 작성자가 아닙니다');
+                }else {
+                    location.href = 'http://localhost:3001/main/QnA/updatewrite'
+                }
+            }).catch((err)=>{
+                console.error(err);
+            })
+        }
+     </script>
+</body>
+</html>

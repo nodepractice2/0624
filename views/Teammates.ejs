@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teammates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"><!-- 폰트 링크-->
+    <link rel="stylesheet" href="/Teammates.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+
+
+
+<body>
+    <div  id="page-wrapper">
+
+        <!-- header -->
+        <header id="main-header">
+          <table  width="180px" height="0px" text-align="center" align="right"> <!--멤버로그인 박스 설정 align="right"로 오른쪽으로 배치 border속성 사용 x ->선안보임-->
+              <tr>
+                 <td height="150px" text-align="center">
+                   <b>안녕하세요! <%=user.nick %> 님 😊</b> <br>
+                  <a id="logout" href="/auth/logout">로그아웃</a>
+                 </td> 
+                </tr>
+            </table>
+            <!--LOGO를 위한 div태그 가운데 위치조정 이미지 소스링크 네이버에서 받아옴-->
+          <div style="text-align: center;">
+              <a href="/main"> <!--추가-->
+              <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150403_74%2Flsheng_1428069808248vgMYy_PNG%2F%25B7%25CE%25B0%25ED.png&type=sc960_832" alt="logo" width="150px">
+              
+          </div>
+          
+          
+          </header>
+  
+      <!-- navigation  -->
+  
+      <nav id="main-nav"> 
+              <div class="pull-left"> 
+                  <ul class="outer-menu">
+                      <li class="outer-menu-item">
+                          <div class="menu-title" ><a href = "../main/Teammates" >조원소개</a></div>
+                      </li>
+                      <li class="outer-menu-item">
+                           <span class="menu-title"><a  href = "../main/introduction">전공소개</a></span>
+                      </li>
+                      <li class="outer-menu-item">
+                        <span class="menu-title"><a href = "../main/post">QnA</a></span>
+                      </li>
+                  </ul>
+              </div>
+      
+            </div>
+      
+            </div>
+  
+  
+          
+       </nav>  
+    <section id="main-section">
+        <article>
+            <div class="article-header" id ="page" name="page">
+                
+                <div class="wrapper">
+                    <ul class="team">
+                        <li id = '1' onclick = 'ax1(this.id)' class="team-item">
+                            <div class="profile profile_red">
+                                <img src="/images/red.png">
+                                <div class="profile-contents">
+                                    <h2>이세진<span>Back-End</span></h2>
+                                    <p id = '11'>나이</p>
+                                    <p id = '12'>번호</p>
+                                    <p id = '13'>이메일</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li id = '2' onclick = 'ax2(this.id)' class="team-item">
+                            <div class="profile profile_beige">
+                                <img src="/images/doggy.png">
+                                <div class="profile-contents">
+                                    <h2>고동현<span>Front-End</span></h2>
+                                    <p id = '21'>나이</p>
+                                    <p id = '22'>번호</p>
+                                    <p id = '23'>이메일</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li id = '3' onclick = 'ax3(this.id)' class="team-item">                <div class="profile profile_green">
+                                <img src="/images/green.png">
+                                <div class="profile-contents">
+                                    <h2>정찬엽<span>Front-End</span></h2>
+                                    <p id = '31'>나이</p>
+                                    <p id = '32'>번호</p>
+                                    <p id = '33'>이메일</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li id = '4' onclick = 'ax4(this.id)' class="team-item">                <div class="profile profile_pink">
+                                <img src="/images/pink.png">
+                                <div class="profile-contents">
+                                    <h2>이재영 <span>Back-End</span></h2>
+                                    <p id = '41'>나이</p>
+                                    <p id = '42'>번호</p>
+                                    <p id = '43'>이메일</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li id = '5' onclick = 'ax5(this.id)' class="team-item">                <div class="profile profile_purple">
+                                <img src="/images/purple.png">
+                                <div class="profile-contents">
+                                    <h2>황예슬<span>Back-End</span></h2>
+                                    <p id = '51'>나이</p>
+                                    <p id = '52'>번호</p>
+                                    <p id = '53'>이메일</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+    
+            </div>
+        </article>
+     </section>
+     <hr>
+
+     <footer id="main-footer">
+       <div class="footimg">
+           <a href="https://www.instagram.com/with_yju/ "  target="_blank">
+               <i class="fab fa-instagram fa-5x "></i>
+           </a>
+           <a href="https://www.facebook.com/yjcomp"  target="_blank">
+               <i class="fab fa-facebook-square fa-5x"></i>
+           </a>
+           <a href="https://www.yjp.ac.kr/portal/main/index_noie.jsp"  target="_blank">
+               <i class="fas fa-graduation-cap fa-5x"></i>
+           </a>
+           <a href="https://github.com/nodepractice2 "  target="_blank">
+               <i class="fab fa-github fa-5x"></i>
+           </a>
+       </div>
+   
+       <div class="footdoc">
+           <p id="rights">개인정보처리방침</p><br>
+           <p>41527 대구광역시 북구 복현로 35 (복현2동 218) Tel : 053.940.5114</p><br>
+           <p>Copyright 2021 YEUNGJIN UNV.COM.2WDA</p><br>
+           <p>All rights reserved.All rights reserved For more information mail to Webmaster</p>
+       </div>
+    </footer>
+   
+    
+   </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function ax1(id) {
+            axios({
+                method : 'post',
+                url : 'http://localhost:3001/main/Teammates',
+                data : {
+                    "id" : id
+                }
+            }).then( (res) => {
+                var id1 =id +1;
+                var id2 =id +2;
+                var id3 =id +3;
+                document.getElementById(id1).innerHTML = "<p>나이  </p>" + res.data[0].age;
+                document.getElementById(id2).innerHTML = "<p>핸드폰 번호  </p>" + res.data[0].phone;
+                document.getElementById(id3).innerHTML = "<p>이메일  </p>" + res.data[0].email;
+                
+            }).catch((err)=> {
+                console.error(err);
+            })
+        }
+        function ax2(id) {
+            axios({
+                method : 'post',
+                url : 'http://localhost:3001/main/Teammates',
+                data : {
+                    "id" : id
+                }
+            }).then( (res) => {
+                var id1 =id +1;
+                var id2 =id +2;
+                var id3 =id +3;
+
+                document.getElementById(id1).innerHTML = "<p>나이  </p>" + res.data[1].age;
+                document.getElementById(id2).innerHTML = "<p>핸드폰 번호  </p>" + res.data[1].phone;
+                document.getElementById(id3).innerHTML = "<p>이메일  </p>" + res.data[1].email;
+                
+            }).catch((err)=> {
+                console.error(err);
+            })
+        }
+        function ax3(id) {
+            axios({
+                method : 'post',
+                url : 'http://localhost:3001/main/Teammates',
+                data : {
+                    "id" : id
+                }
+            }).then( (res) => {
+                var id1 =id +1;
+                var id2 =id +2;
+                var id3 =id +3;
+          
+                document.getElementById(id1).innerHTML = "<p>나이  </p>" + res.data[2].age;
+                document.getElementById(id2).innerHTML = "<p>핸드폰 번호  </p>" + res.data[2].phone;
+                document.getElementById(id3).innerHTML = "<p>이메일  </p>" + res.data[2].email;
+                
+            }).catch((err)=> {
+                console.error(err);
+            })
+        }
+        function ax4(id) {
+            axios({
+                method : 'post',
+                url : 'http://localhost:3001/main/Teammates',
+                data : {
+                    "id" : id
+                }
+            }).then( (res) => {
+                var id1 =id +1;
+                var id2 =id +2;
+                var id3 =id +3;
+         
+                document.getElementById(id1).innerHTML = "<p>나이  </p>" + res.data[3].age;
+                document.getElementById(id2).innerHTML = "<p>핸드폰 번호  </p>" + res.data[3].phone;
+                document.getElementById(id3).innerHTML = "<p>이메일  </p>" + res.data[3].email;
+                
+            }).catch((err)=> {
+                console.error(err);
+            })
+        }
+        function ax5(id) {
+            axios({
+                method : 'post',
+                url : 'http://localhost:3001/main/Teammates',
+                data : {
+                    "id" : id
+                }
+            }).then( (res) => {
+                var id1 =id +1;
+                var id2 =id +2;
+                var id3 =id +3;
+           
+                document.getElementById(id1).innerHTML = "<p>나이  </p>" + res.data[4].age;
+                document.getElementById(id2).innerHTML = "<p>핸드폰 번호  </p>" + res.data[4].phone;
+                document.getElementById(id3).innerHTML = "<p>이메일  </p>" + res.data[4].email;
+                
+            }).catch((err)=> {
+                console.error(err);
+            })
+        }
+     </script>
+</body>
+</html>

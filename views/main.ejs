@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainPage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"><!-- 폰트 링크-->
+    <link rel="stylesheet" href="./main.css"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+</head>
+
+
+
+<body>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready( function() {
+
+    $("#page").load("/video.ejs");  
+
+    });
+    
+
+
+
+
+
+    </script>
+    
+    <!--전체를 감싸는 태그-->
+    <div  id="page-wrapper">
+
+        <!-- header -->
+        <header id="main-header">
+            <table  width="180px" height="0px" text-align="center" align="right"> <!--멤버로그인 박스 설정 align="right"로 오른쪽으로 배치 border속성 사용 x ->선안보임-->
+                <tr>
+                   <td height="150px" text-align="center">
+                     <b>안녕하세요! <%=user.nick %> 님 😊</b> <br>
+                    <a id="logout" href="/auth/logout">로그아웃</a>
+                   </td> 
+                  </tr>
+              </table>
+              <!--LOGO를 위한 div태그 가운데 위치조정 이미지 소스링크 네이버에서 받아옴-->
+            <div style="text-align: center;">
+                <a href="/main"> <!--추가-->
+                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150403_74%2Flsheng_1428069808248vgMYy_PNG%2F%25B7%25CE%25B0%25ED.png&type=sc960_832" alt="logo" width="150px">
+                
+            </div>
+            
+            
+            </header>
+
+        <!-- navigation  -->
+
+         <nav id="main-nav"> 
+            <div class="pull-left"> 
+                <ul class="outer-menu">
+                    <li class="outer-menu-item">
+                        <div class="menu-title" ><a href = "../main/Teammates" >조원소개</a></div>
+                    </li>
+                    <li class="outer-menu-item">
+                         <span class="menu-title"><a href = "../main/introduction">전공소개</a></span>
+                    </li>
+                    <li class="outer-menu-item">
+                      <span class="menu-title"><a href = "../main/post">QnA</a></span>
+                    </li>
+                </ul>
+            </div>
+ 
+          </div>
+
+
+            
+         </nav>   
+         <!-- index -->
+         <section id="main-section">
+            <article>
+                <div class="article-header" id ="page" name="page">
+                    
+                    <!-- 비디오 음소거 자동재생 무한반복-->
+
+        
+                </div>
+            </article>
+         </section>
+         <hr>
+
+
+        <!-- footer -->
+        <footer id="main-footer">
+            <div class="footimg">
+                <a href="https://www.instagram.com/with_yju/ "  target="_blank">
+                    <i class="fab fa-instagram fa-5x "></i>
+                </a>
+                <a href="https://www.facebook.com/yjcomp"  target="_blank">
+                    <i class="fab fa-facebook-square fa-5x"></i>
+                </a>
+                <a href="https://www.yjp.ac.kr/portal/main/index_noie.jsp"  target="_blank">
+                    <i class="fas fa-graduation-cap fa-5x"></i>
+                </a>
+                <a href="https://github.com/nodepractice2 "  target="_blank">
+                    <i class="fab fa-github fa-5x"></i>
+                </a>
+            </div>
+
+            <div class="footdoc">
+                <p id="rights">개인정보처리방침</p><br>
+                <p>41527 대구광역시 북구 복현로 35 (복현2동 218) Tel : 053.940.5114</p><br>
+                <p>Copyright 2021 YEUNGJIN UNV.COM.2WDA</p><br>
+                <p>All rights reserved.All rights reserved For more information mail to Webmaster</p>
+            </div>
+         </footer>
+    </div>
+</body>
+</html>

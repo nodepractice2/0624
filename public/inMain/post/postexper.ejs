@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <div>
+        <span id = "sp" value = "span">
+            <p>sdsddsdsdsdsddsdsd</p>
+        </span>
+
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        async function getpost() {
+            res = axios.post('http://localhost:3001/main/post/content')
+            alert.log(res.body.data)
+        }
+    </script>
+</body>

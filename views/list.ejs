@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>게시글</title>
+    </head>
+    <body>
+        <h2>게시글 리스트</h2>
+        <table border='1'>
+            <colgroup>
+                <col width='60'><col width='200'><col width='100'>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>글번호</th>
+                    <th>글제목</th>
+                    <th>작성자</th>
+                    <th>내용</th>
+                    <th>작성시간</th>
+                    <th>삭제</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form action='/delete' method='post'>
+                   
+                {% for user in {postdata}  %}
+                <tr>
+                    <td>{% user.id %}</td>
+                    <td>{% user.postTitle %}</td>
+                    <td>{% user.writer %}</td>
+                    <td>{% user.createdAt %}</td>
+                    <td ><button onclick="location.href='../delete/?num=${list[i].rownum}'">글삭제</button></td>
+                </tr>
+                {% endfor %}
+                </form>
+            </tbody>
+        </table boader='1'>
+        
+        <button onclick="location.href='../write'">글쓰기</button>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>글쓰기</title>
+    <link rel="stylesheet" href="./Article.css">
+</head>
+<body>
+    <section id="main-section">
+        <article>
+            
+           <div class="board_list_wrap">
+              <div class="board_list">
+                <div class="num">Q&A</div>
+                  <div class="board_list_head">
+                      <div class="num"><%=list[i].title %>제목</div>
+                      <div class="tit"></div>
+                      <div class="writer"></div>
+                      <div class="date"><%=list[i].id %>글쓴이</div>
+                      <div class="view"><%=list[i].wdate %>작성일</div>
+                  </div>
+                  <div class="board_list_body">
+                      <div class="item">
+                        <div><br> <br> <br><p>글이 와야겠죠?</p> <br> <br> <br> <br> <br> <br> <br> </div>
+                      </div>
+                  </div>
+                  <br>
+                  <div class="com">
+                    <input id="new-comment" placeholder="댓글입력">
+                    <button type="submit" onclick="submitComment()" id="submit">댓글달기</button>
+                </div>
+              </div>
+              <br>
+          </div>
+        </article>
+     </section>
+     <hr>
+</body>
+</html>
