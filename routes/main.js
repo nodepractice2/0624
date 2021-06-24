@@ -24,8 +24,7 @@ router.route('/Teammates')
     await db.Team.findAll()
     .then((result) =>{
       // console.log(result.id);
-      var data = result;
-      res.send(data);
+      res.send(result);
     })
   
   });
@@ -36,15 +35,14 @@ router.get('/post', async(req,res) => {
           await db.Post.findAll({raw : true})
           .then((results) =>{
             postdata = results;
+            global.postdata = postdata;
           }).catch ((err)=>{
            console.error(err);
           });
-          res.redirect('/main/QnA');
+          res.render('QnA',{postdata});
 });
        
-router.get('/QnA' ,(req,res) => {
-  res.render('QnA' , {postdata});
-})                       
+                     
 
 
 router.get('/introduction',(req,res)=>{

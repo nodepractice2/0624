@@ -42,13 +42,13 @@
         <div class="pull-left"> 
             <ul class="outer-menu">
                 <li class="outer-menu-item">
-                    <div class="menu-title" ><a href = "../main/Teammates" >조원소개</a></div>
+                    <div class="menu-title" ><a href = "/main/Teammates" >조원소개</a></div>
                 </li>
                 <li class="outer-menu-item">
-                     <span class="menu-title"><a href = "../main/introduction">전공소개</a></span>
+                     <span class="menu-title"><a href = "/main/introduction">전공소개</a></span>
                 </li>
                 <li class="outer-menu-item">
-                  <span class="menu-title"><a href = "../main/post">QnA</a></span>
+                  <span class="menu-title"><a href = "/main/post">QnA</a></span>
                 </li>
             </ul>
         </div>
@@ -78,7 +78,7 @@
                           <div class="item">
                               <% for(i = 0; i < postdata.length; i++) { %>
                                 <div class="num"><%=postdata[i].id %></div>
-                                <div class="tit"><a href = "../main/QnA/Article?id=<%=postdata[i].id %>"><%=postdata[i].postTiltle %></a></div>
+                                <div class="tit"><a href = "/main/QnA/Article?id=<%=postdata[i].id %>"><%=postdata[i].postTiltle %></a></div>
                                 <div class="writer"><%=postdata[i].writer %></div>
                                 <div class="date"><%=postdata[i].createdAt %></div>
                                
@@ -87,7 +87,7 @@
                       </div>
                   </div>
                   <br>
-                  <button class="button"><a href = "../main/QnA/write">글쓰기</a></button>
+                  <button class="button"><a href = "/main/QnA/write">글쓰기</a></button>
               </div>
             </article>
          </section>

@@ -66,13 +66,10 @@
                     <div class="item_list">  
                     <div class="item">
                   </div>
-                 <div class="eotrmfckd">
-                    <% for(i = 1; i < list.length; i++) { %><br>  
-                        <div class="eotrmf"><%=list[i]['eotrmfs.writer'] %></div>
-                        <div class="eotrmf1"><%=list[i]['eotrmfs.content'] %><hr></div>
-                       <% } %>  
-                    <div id = 'new'></div>      
-                  </div>
+               
+
+                    <div class="eotrmfckd" id = 'new'></div>      
+                  
               </div>
               <br>
           </div>
@@ -106,7 +103,36 @@
      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         var users = [];
-        var i=0;   
+        var i=0;
+        
+        window.onload = getDatgle();
+
+        function getDatgle() {
+            axios({
+                method : 'get',
+                url : 'http://localhost:3001/main/QnA/Article/datgle',
+                })
+                .then((res) =>{
+                    for(;i<res.data.length;i++){
+                        users[i]=res.data[i].content;
+                    }
+                    const newdata = document.getElementById('new');
+                    newdata.innerHTML = '';
+                    Object.keys(users).map(function (key){
+                        const userdiv = document.createElement('div');
+                        
+                        const span = document.createElement('span');
+                        span.className="eotrmfckd"// 이걸로 클래스 부여
+                        span.innerHTML = "<%=user.nick %>" + "<br>" +users[key];
+                        //span.innerHTML = datgle;
+                        userdiv.appendChild(span);
+                        newdata.appendChild(userdiv);
+                    })
+                })   
+                .catch ((err) => {
+                    console.log(err);
+                })
+            }
         function submitComment() {
             var datgle = document.getElementById("new-comment").value;
             axios({
@@ -115,26 +141,11 @@
                 data : {
                     datgle  
                 }   
-            }).then( (res) => {
-                list = res.data;
-                users[i]=datgle;
-                i= i+1;
-                console.log(i);
-                console.log(users);
-                const newdata = document.getElementById('new');
-                newdata.innerHTML = '';
-                Object.keys(users).map(function (key){
-                    const userdiv = document.createElement('div');
-                    const span = document.createElement('span');
-                    span.innerHTML = "<%=user.nick %>" + "<br>" +users[key];
-                    //span.innerHTML = datgle;
-                    userdiv.appendChild(span);
-                    newdata.appendChild(userdiv);
-                })
-            }).catch((err)=> {
-                console.error(err);
+            }).then( ()=>{
+                getDatgle();
             })
-        }
+        }   
+        
         function del(){ 
             var input =prompt('삭제 을 입력' ,' ');
             axios({

@@ -70,14 +70,14 @@ router.get('/logout', isLoggedIn, (req, res) => {
   res.redirect('/');
 });
 
-router.post('/main/db',(req,res,next) => {
-  Post.findAll().then(function(results){
-    var postdata = results;
-    res.render(postdata);
-  }).catch(function(err){
-    console.error(err);
-  })
-})
+// router.post('/main/db',(req,res,next) => {
+//   Post.findAll().then(function(results){
+//     var postdata = results;
+//     res.render(postdata);
+//   }).catch(function(err){
+//     console.error(err);
+//   })
+// })
 
 
 
